@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 99%;
+    --foreground: 220 25% 6%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 6%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 6%;
+    --primary: 220 25% 6%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 220 16% 96%;
+    --secondary-foreground: 220 25% 6%;
+    --muted: 220 16% 96%;
+    --muted-foreground: 220 10% 44%;
+    --accent: 220 16% 96%;
+    --accent-foreground: 220 25% 6%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 14% 90%;
+    --input: 220 14% 90%;
+    --ring: 220 25% 6%;
+    --chart-1: 142 71% 45%;
+    --chart-2: 38 92% 50%;
+    --chart-3: 0 72% 51%;
+    --chart-4: 220 14% 96%;
+    --chart-5: 220 10% 46%;
+    --radius: 0.625rem;
+
+    --sidebar-background: 220 25% 4%;
+    --sidebar-foreground: 220 10% 75%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 220 25% 4%;
+    --sidebar-accent: 220 18% 10%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 16% 14%;
+    --sidebar-ring: 220 20% 30%;
+
+    --ack: 142 71% 45%;
+    --ack-foreground: 0 0% 100%;
+    --ask: 38 92% 50%;
+    --ask-foreground: 0 0% 100%;
+    --nack: 0 72% 51%;
+    --nack-foreground: 0 0% 100%;
+    --success: 142 71% 45%;
+    --warning: 38 92% 50%;
+  }
+
+  .dark {
+    --background: 220 25% 6%;
+    --foreground: 210 20% 92%;
+    --card: 220 22% 8%;
+    --card-foreground: 210 20% 92%;
+    --popover: 220 22% 8%;
+    --popover-foreground: 210 20% 92%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 220 25% 6%;
+    --secondary: 220 18% 13%;
+    --secondary-foreground: 210 20% 92%;
+    --muted: 220 18% 13%;
+    --muted-foreground: 220 10% 55%;
+    --accent: 220 18% 13%;
+    --accent-foreground: 210 20% 92%;
+    --destructive: 0 62% 55%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 16% 16%;
+    --input: 220 16% 16%;
+    --ring: 210 20% 80%;
+    --chart-1: 142 60% 50%;
+    --chart-2: 38 80% 55%;
+    --chart-3: 0 62% 55%;
+    --chart-4: 220 16% 16%;
+    --chart-5: 220 10% 55%;
+
+    --sidebar-background: 220 25% 4%;
+    --sidebar-foreground: 220 10% 70%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 220 25% 4%;
+    --sidebar-accent: 220 18% 10%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 220 16% 14%;
+    --sidebar-ring: 220 20% 30%;
+
+    --ack: 142 60% 50%;
+    --ack-foreground: 0 0% 100%;
+    --ask: 38 80% 55%;
+    --ask-foreground: 0 0% 100%;
+    --nack: 0 62% 55%;
+    --nack-foreground: 0 0% 100%;
+    --success: 142 60% 50%;
+    --warning: 38 80% 55%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Premium scrollbar */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 3px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: hsl(var(--muted-foreground) / 0.3);
+  }
+
+  /* Dark mode link focus */
+  .dark ::selection {
+    background: hsl(var(--primary) / 0.2);
+    color: hsl(var(--primary));
+  }
+}
+
+/* --- PWA iPhone Safe Areas --- */
+html, body { height: 100%; margin: 0; padding: 0; }
+body { min-height: 100dvh; }
+.app-shell, header, footer {
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+}
+header { padding-top: calc(12px + env(safe-area-inset-top)); }
+footer { padding-bottom: calc(12px + env(safe-area-inset-bottom)); }
